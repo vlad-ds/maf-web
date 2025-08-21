@@ -1,5 +1,21 @@
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
+    // Move buttons outside overlay on mobile
+    if (window.innerWidth <= 768) {
+        const heroButtons = document.querySelector('.hero-buttons');
+        const heroSection = document.querySelector('.hero');
+        const heroContainer = document.querySelector('.hero-background-container');
+        
+        if (heroButtons && heroSection && heroContainer) {
+            // Clone the buttons
+            const buttonsClone = heroButtons.cloneNode(true);
+            // Remove original buttons from overlay
+            heroButtons.style.display = 'none';
+            // Insert cloned buttons after the hero-background-container
+            heroContainer.insertAdjacentElement('afterend', buttonsClone);
+        }
+    }
+    
     // Mobile menu toggle functionality
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const navMenu = document.getElementById('nav-menu');

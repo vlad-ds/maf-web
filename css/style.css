@@ -1607,7 +1607,7 @@ footer p {
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero {
-        padding-bottom: 40px;
+        padding-bottom: 20px;
     }
     
     #about {
@@ -1646,18 +1646,36 @@ footer p {
     }
     
     .hero-content h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.8);
+        padding: 0.5rem;
+        border-radius: 8px;
     }
     
     .hero-content p {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 0.5rem;
+        border-radius: 8px;
+        margin: 0.5rem 0;
+    }
+    
+    .hero-overlay {
+        padding-bottom: 0;
     }
     
     .hero-buttons {
+        margin-top: 20px;
+        margin-bottom: 0;
+        padding: 20px 1rem;
+        background: #fff;
+        position: relative;
+        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        margin-top: 1.5rem;
+        z-index: 10;
     }
     
     .hero-buttons .btn-primary,
@@ -1674,16 +1692,23 @@ footer p {
     
     .hero-background-container {
         padding: 0 1rem;
+        position: relative;
     }
     
     .hero-overlay {
-        padding: 1.5rem;
-        position: relative;
+        padding: 1rem;
+        position: absolute;
         margin-top: 0;
+        background: rgba(255, 255, 255, 0.4);
+        min-height: calc(100% - 120px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .hero-background-image {
-        aspect-ratio: 16/9;
+        aspect-ratio: 4/3;
+        min-height: 400px;
     }
     
     .btn-primary, .btn-secondary {
@@ -1810,14 +1835,22 @@ footer p {
     }
     
     .hero {
-        padding-bottom: 30px;
+        padding-bottom: 20px;
         padding-top: 70px;
     }
     
 
     
     .hero-content h2 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 0.4rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.85);
+        padding: 0.4rem;
     }
     
     .research-card, .domain-card, .video-placeholder, .partner-placeholder {
@@ -1830,10 +1863,17 @@ footer p {
     
     .hero-background-container {
         padding: 0 1rem;
+        position: relative;
     }
     
     .hero-overlay {
-        padding: 1rem;
+        padding: 0.75rem;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.5);
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
