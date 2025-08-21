@@ -178,24 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     createMobileMenu();
 
-    // Add typing effect to hero text (coordinated with logo animation)
-    const heroText = document.querySelector('.hero-content h2');
-    if (heroText) {
-        const originalText = heroText.textContent;
-        heroText.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < originalText.length) {
-                heroText.textContent += originalText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 60);
-            }
-        };
-        
-        // Start typing effect after logo animation completes (3200ms)
-        setTimeout(typeWriter, 3200);
-    }
+    // Typing effect is handled by typewriterEffect() function below
 
     // Publication filtering system
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -320,14 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add parallax effect to hero section
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
+    // Removed parallax effect to prevent hero section from sliding under header
     
     // Reposition logo to normal position after animation
     setTimeout(() => {
@@ -341,12 +317,12 @@ document.addEventListener('DOMContentLoaded', function() {
             heroLogo.style.marginBottom = '2rem';
             heroLogo.style.opacity = '1';
         }
-    }, 4500);
+    }, 2250);
     
     // Step 3: Add typewriter effect after background appears
     setTimeout(() => {
         typewriterEffect();
-    }, 4800); // Start typing 0.3s after background appears (4.5s + 0.3s)
+    }, 2400); // Start typing 0.15s after background appears (2.25s + 0.15s)
     
     // Load Bluesky feed
     loadBlueskyFeed();
@@ -357,15 +333,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Typewriter effect function
 function typewriterEffect() {
+    const heroTitle = document.querySelector('.hero-content h2');
     const heroDescription = document.querySelector('.hero-content p');
     const heroButtons = document.querySelector('.hero-buttons');
     
-    if (!heroDescription || !heroButtons) return;
+    if (!heroTitle || !heroDescription || !heroButtons) return;
     
-    // Use fixed text for description only
-    const descriptionText = "Advancing understanding of money and finance through interdisciplinary collaboration.";
+    // Store original texts
+    const titleText = heroTitle.textContent || "Advancing Understanding of Money and Finance";
+    const descriptionText = "A research network dedicated to developing comprehensive approaches to monetary and financial analysis through interdisciplinary collaboration.";
     
-    // Clear description content and show hero content container
+    // Clear content and prepare for animation
+    heroTitle.textContent = '';
     heroDescription.textContent = '';
     heroButtons.style.opacity = '0';
     
@@ -373,25 +352,38 @@ function typewriterEffect() {
     const heroContent = document.querySelector('.hero-content');
     heroContent.style.opacity = '1';
     
+    let titleIndex = 0;
     let descriptionIndex = 0;
+    
+    // Type the title first
+    function typeTitle() {
+        if (titleIndex < titleText.length) {
+            heroTitle.textContent += titleText.charAt(titleIndex);
+            titleIndex++;
+            setTimeout(typeTitle, 30); // Faster typing for title
+        } else {
+            // Start typing description after title is done
+            setTimeout(typeDescription, 200);
+        }
+    }
     
     // Type the description
     function typeDescription() {
         if (descriptionIndex < descriptionText.length) {
             heroDescription.textContent += descriptionText.charAt(descriptionIndex);
             descriptionIndex++;
-            setTimeout(typeDescription, 40); // Typing speed
+            setTimeout(typeDescription, 20); // Faster typing speed
         } else {
             // Show buttons after description is complete
             setTimeout(() => {
                 heroButtons.style.opacity = '1';
-                heroButtons.style.transition = 'opacity 0.5s ease-in-out';
-            }, 500);
+                heroButtons.style.transition = 'opacity 0.3s ease-in-out';
+            }, 300);
         }
     }
     
-    // Start typing the description immediately
-    typeDescription();
+    // Start typing the title immediately
+    typeTitle();
 }
 
 // Utility functions for future enhancements
