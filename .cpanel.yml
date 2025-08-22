@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/username/public_html/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R *.html $DEPLOYPATH
+    - /bin/cp -R css/ $DEPLOYPATH
+    - /bin/cp -R js/ $DEPLOYPATH
+    - /bin/cp -R images/ $DEPLOYPATH
+    - /bin/cp -R photos/ $DEPLOYPATH
+    - /bin/cp -R Logos/ $DEPLOYPATH
+    - /bin/cp -R Background/ $DEPLOYPATH
+    - /bin/cp -R "workshop photos/" $DEPLOYPATH
+    - /bin/cp -R README.md $DEPLOYPATH
