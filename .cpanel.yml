@@ -2,13 +2,26 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/username/public_html/
-    - /bin/mkdir -p $DEPLOYPATH
-    - /bin/cp -R *.html $DEPLOYPATH
-    - /bin/cp -R css/ $DEPLOYPATH
-    - /bin/cp -R js/ $DEPLOYPATH
-    - /bin/cp -R images/ $DEPLOYPATH
-    - /bin/cp -R photos/ $DEPLOYPATH
-    - /bin/cp -R Logos/ $DEPLOYPATH
-    - /bin/cp -R Background/ $DEPLOYPATH
-    - /bin/cp -R "workshop photos/" $DEPLOYPATH
-    - /bin/cp -R README.md $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp aleksandar-stojanovic.html $DEPLOYPATH
+    - /bin/cp all-publications.html $DEPLOYPATH
+    - /bin/cp claudio-borio.html $DEPLOYPATH
+    - /bin/cp giuseppe-fontana.html $DEPLOYPATH
+    - /bin/cp jan-toporowski.html $DEPLOYPATH
+    - /bin/cp jay-pocklington.html $DEPLOYPATH
+    - /bin/cp jo-michell.html $DEPLOYPATH
+    - /bin/cp john-haskell.html $DEPLOYPATH
+    - /bin/cp olivia-winberg.html $DEPLOYPATH
+    - /bin/cp perry-mehrling.html $DEPLOYPATH
+    - /bin/cp robert-mccauley.html $DEPLOYPATH
+    - /bin/cp workshop-berlin-2025.html $DEPLOYPATH
+    - /bin/cp workshop-manchester-2024.html $DEPLOYPATH
+    - /bin/cp workshop-upcoming.html $DEPLOYPATH
+    - /bin/cp README.md $DEPLOYPATH
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
+    - /bin/cp -R images $DEPLOYPATH
+    - /bin/cp -R photos $DEPLOYPATH
+    - /bin/cp -R Logos $DEPLOYPATH
+    - /bin/cp -R Background $DEPLOYPATH
+    - /bin/cp -R "workshop photos" $DEPLOYPATH
