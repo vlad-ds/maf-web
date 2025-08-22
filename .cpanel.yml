@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/username/public_html/
+    - export DEPLOYPATH=/home2/ervvymmy/public_html/
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp aleksandar-stojanovic.html $DEPLOYPATH
     - /bin/cp all-publications.html $DEPLOYPATH
